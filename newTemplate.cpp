@@ -13,7 +13,24 @@
 using namespace std;
 
 // Forward declarations
-class Product;
+class Product{private:
+    int productId;
+    string name;
+    double price;
+    int stockQuantity;
+
+public:
+    Product(int id, string productName, double productPrice, int quantity)
+        : productId(id), name(productName), price(productPrice), stockQuantity(quantity) {}
+
+    int getProductId() const { return productId; }
+    string getName() const { return name; }
+    double getPrice() const { return price; }
+    int getStockQuantity() const { return stockQuantity; }
+
+    void updateStock(int quantity) { stockQuantity += quantity; }
+    bool checkAvailability(int requestedQty) const { return stockQuantity >= requestedQty; }
+};
 class Order;
 
 // ==========================================
